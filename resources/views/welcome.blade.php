@@ -73,7 +73,7 @@
             <div class="flex flex-col items-center h-fit space-y-14 pt-16">
                 <div class="flex flex-col items-center space-y-5">
                     <p class="font-[arial] font-bold text-4xl sm:text-5xl text-[#171717] text-nowrap">Welcome to <span class="text-[#000000]">Secure</span><span class="text-[#007AFF]">Sign</span></p>
-                    <p class="font-[arial] font-bold text-2xl text-[#171717]">Your Trusted Digital Signature Solution.</p>
+                    <p class="font-[arial] font-bold text-xl sm:text-2xl text-[#171717]">Your Trusted Digital Signature Solution.</p>
                 </div>
                 <div class="flex flex-col items-center">
                     <p class="font-[arial] font-normal text-lg text-[#171717]">Secure, sign and share PDFs online.</p>

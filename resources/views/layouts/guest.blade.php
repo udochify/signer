@@ -55,14 +55,15 @@
             <div class="flex flex-col items-center h-fit space-y-14 pt-16 pb-10">
                 <div class="flex flex-col items-center font-[arial] font-normal text-lg sm:text-xl md:text-2xl text-[#171717]">
                     @if($page == 'signup')
-                    <p>Create an Account with <span class="text-[#000000] font-bold">Secure<span class="text-[#007AFF]">Sign</span></span> Today to sign and</p>
+                    <p>Create an Account with <span class="text-[#000000] font-bold">Secure<span class="text-[#007AFF]">Sign</span></span></p>
+                    <p>today to sign and</p>
                     <p>verify your files using Blockchain Technology</p>
                     @else
                     <p>Login to <span class="text-[#000000] font-bold">Secure<span class="text-[#007AFF]">Sign</span></span> to sign and</p>
-                    <p>verify your documents with Blockchain Technology</p>
+                    <p>verify documents with Blockchain Technology</p>
                     @endif
                 </div>
-                <div class="flex flex-col items-center w-[460px] h-fit bg-[#E5EBF1] rounded-3xl p-2">
+                <div class="flex flex-col items-center w-[410px] sm:w-[460px] h-fit bg-[#E5EBF1] rounded-3xl p-2">
                     <div class="w-[90%] h-24 border-b border-gray-300 py-10 text-lg">
                         @if($page == 'signup')
                         <p>Fill in your details below to create an account</p>
