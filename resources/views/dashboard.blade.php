@@ -21,25 +21,25 @@
         <div class="flex flex-col w-[80%] md:w-[60%]"> 
             <p class="font-[arial] font-normal text-lg sm:text-xl text-nowrap mt-6">What would you like to do:</p>
             <div class="flex flex-col w-full mt-2 space-y-6 text-lg">
-                <div class="relative flex flex-row items-center w-full h-[80px] bg-[#E5EBF1] rounded-lg pl-14">
+                <div class="relative flex flex-row items-center w-full h-[80px] bg-[#E5EBF1] rounded-lg pl-6 sm:pl-14">
                     <img class="w-[28px] h-[36px] mr-4" src="images/icons/import-icon.png" />
                     <p>Import Online Document</p>
                     <a class="absolute right-6" href="/">
                         <img class="w-[45px] h-[45px]" src="images/icons/arrow-right.png" />
                     </a>
                 </div>
-                <div class="relative flex flex-row items-center w-full h-[80px] bg-[#E5EBF1] rounded-lg pl-14">
+                <div class="relative flex flex-row items-center w-full h-[80px] bg-[#E5EBF1] rounded-lg pl-6 sm:pl-14">
                     <img class="w-[36px] h-[36px] mr-4" src="images/icons/verify-icon.png" />
                     <p>Verify Document</p>
                     <a class="absolute right-6" href="/">
                         <img class="w-[45px] h-[45px]" src="images/icons/arrow-right.png" />
                     </a>
                 </div>
-                <div class="relative flex flex-row items-center w-full h-[80px] bg-[#E5EBF1] rounded-lg pl-14">
+                <div class="relative flex flex-row items-center w-full h-[80px] bg-[#E5EBF1] rounded-lg pl-6 sm:pl-14">
                     <img class="w-[36px] h-[36px] mr-4" src="images/icons/sign-icon.png" />
                     <p>Sign Local Document</p>
                     <a class="absolute right-6" href="/">
-                        <img class="w-[45px] h-[45px]" src="images/icons/arrow-right.png" />
+                        <img class="w-[30px] sm:w-[45px] h-[30px] sm:h-[45px]" src="images/icons/arrow-right.png" />
                     </a>
                 </div>
             </div>
