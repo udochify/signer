@@ -5,51 +5,22 @@
         </h2>
 
         <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-            {{ __("Choose what information you want visible on your signed documents") }}
+            {{ __("What info do you want visible on your signed documents?") }}
         </p>
     </header>
 
-    <form id="send-verification" method="post" action="{{ route('verification.send') }}">
-        @csrf
-    </form>
-
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('settings.update') }}" class="mt-6 space-y-6">
         @csrf
         @method('patch')
-
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
-            <x-input-error class="mt-2" :messages="$errors->get('name')" />
-        </div>
-
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
-            <x-input-error class="mt-2" :messages="$errors->get('email')" />
-
-            @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
-                <div>
-                    <p class="text-sm mt-2 text-gray-800 dark:text-gray-200">
-                        {{ __('Your email address is unverified.') }}
-
-                        <button form="send-verification" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
-                            {{ __('Click here to re-send the verification email.') }}
-                        </button>
-                    </p>
-
-                    @if (session('status') === 'verification-link-sent')
-                        <p class="mt-2 font-medium text-sm text-green-600 dark:text-green-400">
-                            {{ __('A new verification link has been sent to your email address.') }}
-                        </p>
-                    @endif
-                </div>
-            @endif
-        </div>
+        
+        <input name="name" type="text" value="{{ $user->name }}" required hidden />
+        <input name="email" type="email" value="{{ $user->email }}" required hidden />
+        <input name="privacy_settings" type="text" value="1" hidden />
         <div class="flex flex-row space-x-2">
             {{-- checkbox  --}}
             <label class="switch">
-                <input id="privacy_email" class="reg-switch" form="course-reg" type="checkbox" value="{{ $user->privacy_email }}" name="privacy[]" />
+                <input type="hidden" value="0" name="privacy_email" />
+                <input id="privacy_email" class="reg-switch" type="checkbox" @if($user->privacy_email) checked @endif value="1" name="privacy_email" />
                 <span class="slider round"></span>
             </label>
             <x-input-label for="privacy_email" :value="__('Email')" />
@@ -57,7 +28,8 @@
         <div class="flex flex-row space-x-2">
             {{-- checkbox  --}}
             <label class="switch">
-                <input id="privacy_name" class="reg-switch" form="course-reg" type="checkbox" value="{{ $user->privacy_name }}" name="privacy[]" />
+                <input type="hidden" value="0" name="privacy_name" />
+                <input id="privacy_name" class="reg-switch" type="checkbox" @if($user->privacy_name) checked @endif value="1" name="privacy_name" />
                 <span class="slider round"></span>
             </label>
             <x-input-label for="privacy_name" :value="__('Name')" />
@@ -65,7 +37,8 @@
         <div class="flex flex-row space-x-2">
             {{-- checkbox  --}}
             <label class="switch">
-                <input id="privacy_address" class="reg-switch" form="course-reg" type="checkbox" value="{{ $user->privacy_address }}" name="privacy[]" />
+                <input type="hidden" value="0" name="privacy_address" />
+                <input id="privacy_address" class="reg-switch" type="checkbox" @if($user->privacy_address) checked @endif value="1" name="privacy_address" />
                 <span class="slider round"></span>
             </label>
             <x-input-label for="privacy_address" :value="__('Address')" />
@@ -73,7 +46,8 @@
         <div class="flex flex-row space-x-2">
             {{-- checkbox  --}}
             <label class="switch">
-                <input id="privacy_phone" class="reg-switch" form="course-reg" type="checkbox" value="{{ $user->privacy_phone }}" name="privacy[]" />
+                <input type="hidden" value="0" name="privacy_phone" />
+                <input id="privacy_phone" class="reg-switch" type="checkbox" @if($user->privacy_phone) checked @endif value="1" name="privacy_phone" />
                 <span class="slider round"></span>
             </label>
             <x-input-label for="privacy_phone" :value="__('Phone')" />
@@ -81,23 +55,24 @@
         <div class="flex flex-row space-x-2">
             {{-- checkbox  --}}
             <label class="switch">
-                <input id="privacy_gender" class="reg-switch" form="course-reg" type="checkbox" value="{{ $user->privacy_gender }}" name="results[]" />
+                <input type="hidden" value="0" name="privacy_gender" />
+                <input id="privacy_gender" class="reg-switch" type="checkbox" @if($user->privacy_gender) checked @endif value="1" name="privacy_gender" />
                 <span class="slider round"></span>
             </label>
             <x-input-label for="privacy_gender" :value="__('Gender')" />
         </div>
 
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+            <x-primary-button>{{ __('Update') }}</x-primary-button>
 
-            @if (session('status') === 'profile-updated')
+            @if (session('privacy_update_status') === 'privacy-updated')
                 <p
                     x-data="{ show: true }"
                     x-show="show"
-                    x-transition
-                    x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-gray-600 dark:text-gray-400"
-                >{{ __('Saved.') }}</p>
+                    {{-- x-transition
+                    x-init="setTimeout(() => show = false, 2000)" --}}
+                    class="text-sm text-green-600 dark:text-green-400"
+                >{{ __('Privacy Updated Successfully.') }}</p>
             @endif
         </div>
     </form>

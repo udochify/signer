@@ -15,6 +15,7 @@
 
         <!-- Vite -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        {{ $scripts ?? "" }}
         <style>
             .active-vs {
                 border-width: 2px;
@@ -27,6 +28,11 @@
 
             .login-login p, .signup-signup p {
                 color: #FFFFFF;
+            }
+
+            .ps__rail-x, .ps__rail-y 
+            {
+                opacity: 0.6;
             }
         </style>
     </head>
@@ -43,7 +49,7 @@
                             <p class="text-xs">Personalised profile</p>
                             <x-dropdown align="left" width="48">
                                 <x-slot name="trigger">
-                                    <div class="ml-1">
+                                    <div class="ml-1 border rounded-[5px] border-gray-300">
                                         <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                                         </svg>
@@ -70,7 +76,7 @@
                 </div>
             </div>
             <div class="h-full">
-                <div class="flex flex-row space-x-4 h-full w-fit items-center px-10 font-[arial]">
+                <div class="flex flex-row space-x-2 h-full w-fit items-center px-10 font-[arial]">
                     <a href="/">
                         <p class="font-bold text-xl text-[#000000]">
                             Secure<span class="text-[#007AFF]">Sign</span>
@@ -78,6 +84,24 @@
                     </a>
                     <img class="w-4 h-[18px]" src="images/icons/arrow-4-right.png" />
                     <p class="font-sans text-lg font-thin capitalize">{{ $page ?? "" }}</p>
+                    <x-dropdown align="right" width="48">
+                        <x-slot name="trigger">
+                            <div class="-ml-1 border rounded-[5px] border-gray-300">
+                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </x-slot>
+
+                        <x-slot name="content">
+                            <x-dropdown-link :href="route('sign')">
+                                {{ __('Sign') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link :href="route('verify')">
+                                {{ __('Verify') }}
+                            </x-dropdown-link>
+                        </x-slot>
+                    </x-dropdown>
                 </div>
                 <div class="absolute top-0 right-0 flex flex-row h-full w-fit items-center px-10 md:px-20 gap-x-4 md:gap-x-6">
                     
@@ -102,7 +126,7 @@
                 <x-responsive-nav-link :href="route('dashboard')">
                     {{ __('Doc formats') }}
                 </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('settings')">
+                <x-responsive-nav-link :href="route('settings.edit')">
                     {{ __('Settings') }}
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('dashboard')">
@@ -119,7 +143,7 @@
                 </form>
             </div>
         </div>
-        <div class="relative flex flex-row top-16 w-screen min-h-[calc(100vh-64px)] bg-white">
+        <div class="relative flex flex-col sm:flex-row top-16 w-screen min-h-[calc(100vh-64px)] bg-white">
             <div class="hidden sm:flex flex-col items-center w-64 min-h-screen bg-[#E5EBF1] border-solid border-r border-gray-300">
                 <a href="/">
                     <div class="flex flex-row items-center space-x-3 w-44 mt-10 mb-20 rounded-[5px] text-[#007AFF] text-normal pl-2 py-1 border border-[#007AFF] border-solid hover:border-blue-300">
@@ -134,7 +158,7 @@
                             <p class="">Dashboard</p>
                         </div>
                     </a>
-                    <a href="{{ route('settings') }}">
+                    <a href="{{ route('settings.edit') }}">
                         <div class="flex flex-row items-center space-x-3 w-44 rounded-[4px] text-normal pl-2 py-1 hover:border hover:border-blue-300 hover:border-solid">
                             <img class="w-6 h-6" src="images/icons/material-symbols_settings.png" />
                             <p class="">Settings</p>

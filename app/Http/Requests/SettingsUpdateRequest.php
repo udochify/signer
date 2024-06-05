@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class ProfileUpdateRequest extends FormRequest
+class SettingsUpdateRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -16,6 +16,7 @@ class ProfileUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'signature' => ['nullable', 'string', 'max:100'],
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
             'firstname' => ['nullable', 'string', 'max:50'],
@@ -23,6 +24,12 @@ class ProfileUpdateRequest extends FormRequest
             'address' => ['nullable', 'string', 'max:100'],
             'phone' => ['nullable', 'string', 'max:20'],
             'gender' => ['nullable', 'string', 'max:20'],
+            'privacy_settings' => ['nullable', 'in:1'],
+            'privacy_email' => ['nullable', 'in:1,0'],
+            'privacy_name' => ['nullable', 'in:1,0'],
+            'privacy_address' => ['nullable', 'in:1,0'],
+            'privacy_phone' => ['nullable', 'in:1,0'],
+            'privacy_gender' => ['nullable', 'in:1,0'],
         ];
     }
 }

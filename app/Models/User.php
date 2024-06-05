@@ -17,6 +17,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'signature',
         'name',
         'email',
         'password',
@@ -53,5 +54,10 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function files() 
+    {
+        return $this->hasMany(File::class);
     }
 }
