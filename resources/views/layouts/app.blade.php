@@ -40,7 +40,7 @@
         <div class="absolute w-screen flex flex-row h-16 bg-[#E5EBF1] z-50 border-solid border-b border-gray-300">
             <div class="hidden sm:flex flex-col items-center h-full w-64">
                 <div class="flex flex-row h-full items-center space-x-2">
-                    <img class="w-[34px] h-[34px]" src="images/icons/avatar.png" />
+                    <img class="w-[34px] h-[34px]" src="{{ asset('images/icons/avatar.png') }}" />
                     <div class="flex flex-col">
                         <div class="max-w-[184px] overflow-clip">
                             <p class="text-lg capitalize whitespace-nowrap" title="{{ Auth::user()->name }}">{{ Auth::user()->name }}</p>
@@ -82,7 +82,7 @@
                             Secure<span class="text-[#007AFF]">Sign</span>
                         </p>
                     </a>
-                    <img class="w-4 h-[18px]" src="images/icons/arrow-4-right.png" />
+                    <img class="w-4 h-[18px]" src="{{ asset('images/icons/arrow-4-right.png') }}" />
                     <p class="font-sans text-lg font-thin capitalize">{{ $page ?? "" }}</p>
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
@@ -147,26 +147,26 @@
             <div class="hidden sm:flex flex-col items-center w-64 min-h-screen bg-[#E5EBF1] border-solid border-r border-gray-300">
                 <a href="/">
                     <div class="flex flex-row items-center space-x-3 w-44 mt-10 mb-20 rounded-[5px] text-[#007AFF] text-normal pl-2 py-1 border border-[#007AFF] border-solid hover:border-blue-300">
-                        <img class="w-[21px] h-[24px]" src="images/icons/vector.png" />
+                        <img class="w-[21px] h-[24px]" src="{{ asset('images/icons/vector.png') }}" />
                         <p class="">View Doc formats</p>
                     </div>
                 </a>
                 <div class="flex flex-col items-center space-y-6">
                     <a href="{{ route('dashboard') }}">
                         <div class="flex flex-row items-center space-x-3 w-44 bg-[#007AFF] rounded-[5px] text-white text-normal pl-2 py-1 hover:border hover:border-blue-300 hover:border-solid">
-                            <img class="w-6 h-6" src="images/icons/clarity_home-solid.png" />
+                            <img class="w-6 h-6" src="{{ asset('images/icons/clarity_home-solid.png') }}" />
                             <p class="">Dashboard</p>
                         </div>
                     </a>
                     <a href="{{ route('settings.edit') }}">
                         <div class="flex flex-row items-center space-x-3 w-44 rounded-[4px] text-normal pl-2 py-1 hover:border hover:border-blue-300 hover:border-solid">
-                            <img class="w-6 h-6" src="images/icons/material-symbols_settings.png" />
+                            <img class="w-6 h-6" src="{{ asset('images/icons/material-symbols_settings.png') }}" />
                             <p class="">Settings</p>
                         </div>
                     </a>
                     <a href="/">
                         <div class="flex flex-row items-center space-x-3 w-44 rounded-[4px] text-normal pl-2 py-1 hover:border hover:border-blue-300 hover:border-solid">
-                            <img class="w-6 h-6" src="images/icons/mingcute_notification-fill.png" />
+                            <img class="w-6 h-6" src="{{ asset('images/icons/mingcute_notification-fill.png') }}" />
                             <p class="">Notification</p>
                         </div>
                     </a>
@@ -174,7 +174,7 @@
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <div onclick="event.preventDefault(); this.closest('form').submit();" class="flex flex-row items-center space-x-3 w-44 mt-32 rounded-[4px] text-normal text-[#F65A5A] pl-2 py-1 hover:border hover:border-[#F65A5A] hover:border-solid cursor-pointer">
-                        <img class="w-6 h-6" src="images/icons/tdesign_logout.png" />
+                        <img class="w-6 h-6" src="{{ asset('images/icons/tdesign_logout.png') }}" />
                         <p class="">Log out</p>
                     </div>
                 </form>

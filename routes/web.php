@@ -21,6 +21,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/settings', [SettingsController::class, 'update'])->name('settings.update');
     Route::get('/sign', [FileController::class, 'sign_index'])->name('sign');
     Route::get('/verify', [FileController::class, 'verify_index'])->name('verify');
+    Route::post('/verify', [FileController::class, 'verify'])->name('files.verify');
     Route::resource('files', FileController::class)->only(['store'])->names(['store'=>'files.sign']);
 });
 

@@ -11,7 +11,7 @@
         <script src="{{ asset('js/udo-main.js') }}" defer></script>
     </x-slot>
     <div class="flex flex-col items-center w-full mb-14">
-        <img class="w-[100px] h-[100px] mt-6" src="images/sign.png" />
+        <img class="w-[100px] h-[100px] mt-6" src="{{ asset('images/sign.png') }}" />
         <p class="font-[arial] font-normal text-xl sm:text-2xl text-nowrap mt-4">Sign your files here</p>
         <div class="flex flex-col w-[80%] md:w-[60%]"> 
             <p class="font-[arial] font-normal text-lg sm:text-xl text-nowrap mt-6">Select a document to sign:</p>

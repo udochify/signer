@@ -27,7 +27,7 @@
                         <p>Name:</p>
                     </div>
                     <div>
-                        <p class="whitespace-nowrap"></p>
+                        <p class="whitespace-nowrap">{{ $file->name ?? "" }}</p>
                     </div>
                 </div>
                 <div class="flex flex-row space-x-2">
@@ -35,23 +35,23 @@
                         <p>Date Signed:</p>
                     </div>
                     <div>
-                        <p class="whitespace-nowrap"></p>
+                        <p class="whitespace-nowrap">{{ $file->created_at ?? "" }}</p>
                     </div>
                 </div>
-                <div class="flex flex-row space-x-2">
+                {{-- <div class="flex flex-row space-x-2">
                     <div>
                         <p>Path:</p>
                     </div>
                     <div>
-                        <p class="whitespace-nowrap"></p>
+                        <p class="whitespace-nowrap">{{ $file->path ?? "" }}</p>
                     </div>
-                </div>
+                </div> --}}
                 <div class="flex flex-row space-x-2">
                     <div>
                         <p>Url:</p>
                     </div>
                     <div>
-                        <p class="whitespace-nowrap"></p>
+                        <p class="whitespace-nowrap"{{ $file->path ?? "" }}></p>
                     </div>
                 </div>
                 <div class="flex flex-row space-x-2">
@@ -59,7 +59,7 @@
                         <p>Size:</p>
                     </div>
                     <div>
-                        <p class="whitespace-nowrap"></p>
+                        <p class="whitespace-nowrap">{{ $file->size ?? "" }}</p>
                     </div>
                 </div>
             </div>
@@ -72,7 +72,13 @@
                         <p>Name:</p>
                     </div>
                     <div>
-                        <p class="whitespace-nowrap"></p>
+                        <p class="whitespace-nowrap">
+                            @if(($user->surname ?? false) || ($user->firstname ?? false))
+                                {{ $user->surname }}&nbsp;{{ $user->firstname }}
+                            @else 
+                                {{ $user->name ?? "" }}
+                            @endif
+                        </p>
                     </div>
                 </div>
                 <div class="flex flex-row space-x-2">
@@ -80,7 +86,7 @@
                         <p>Email:</p>
                     </div>
                     <div>
-                        <p class="whitespace-nowrap"></p>
+                        <p class="whitespace-nowrap">{{ $user->email ?? "" }}</p>
                     </div>
                 </div>
                 <div class="flex flex-row space-x-2">
@@ -88,7 +94,7 @@
                         <p>Address:</p>
                     </div>
                     <div>
-                        <p class="whitespace-nowrap"></p>
+                        <p class="whitespace-nowrap">{{ $user->address ?? "" }}</p>
                     </div>
                 </div>
                 <div class="flex flex-row space-x-2">
@@ -96,7 +102,7 @@
                         <p>Phone:</p>
                     </div>
                     <div>
-                        <p class="whitespace-nowrap"></p>
+                        <p class="whitespace-nowrap">{{ $user->phone ?? "" }}</p>
                     </div>
                 </div>
                 <div class="flex flex-row space-x-2">
@@ -104,7 +110,7 @@
                         <p>Gender:</p>
                     </div>
                     <div>
-                        <p class="whitespace-nowrap"></p>
+                        <p class="whitespace-nowrap">{{ $user->gender ?? "" }}</p>
                     </div>
                 </div>
             </div>

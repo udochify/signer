@@ -8,7 +8,7 @@
         <script src="{{ asset('js/udo-main.js') }}" defer></script>
     </x-slot>
     <div class="flex flex-col items-center w-full mb-14">
-        <img class="w-[100px] h-[100px] mt-6" src="images/verify.png" />
+        <img class="w-[100px] h-[100px] mt-6" src="{{ asset('images/verify.png') }}" />
         <p class="font-[arial] font-normal text-xl sm:text-2xl text-nowrap mt-4">Verify your files here</p>
         {{-- <p class="font-[arial] font-bold text-3xl sm:text-4xl text-nowrap mt-2"><span class="text-[#000000]">Secure</span><span class="text-[#007AFF]">Sign</span> dashboard</p> --}}
         <div class="flex flex-col w-[80%] md:w-[60%]"> 

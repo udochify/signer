@@ -30,7 +30,7 @@
             <div class="text-sm text-green-600 dark:text-green-400">
                 <p>Signature Created Sucessfully.</p>
                 <div class="flex flex-row items-center space-x-1">
-                    <img src="images/icons/green-alert-100.png" class="w-3 h-3 -mt-[2px]" />
+                    <img src="{{ asset('images/icons/green-alert-100.png') }}" class="w-3 h-3 -mt-[2px]" />
                     <p><strong>Alert:</strong>&nbsp;Copy key to a safe location as it is shown only once:</p>
                 </div>
                 <p class="text-[10px]">{{ session('key') }}</p>
