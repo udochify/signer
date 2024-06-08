@@ -1,8 +1,8 @@
 <div class="w-[90%] border-b border-gray-300">
     <p>Signature Information</p>
 </div>
-<div class="relative scroll-container w-[90%] overflow-auto p-4">
-    <div class="flex flex-row items-start space-x-5">
+<div class="relative scroll-container w-[90%] overflow-auto">
+    <div class="max-w-[400px] flex flex-row items-start space-x-5">
         <div class="relative flex flex-col space-y-2 w-32 h-40 border-8 border-gray-600 border-solid p-2">
             <div class="flex flex-row space-x-2">
                 <div class="w-12 h-14 bg-gray-600"></div>
@@ -38,14 +38,6 @@
                         <p class="whitespace-nowrap">{{ $file->created_at ?? "" }}</p>
                     </div>
                 </div>
-                {{-- <div class="flex flex-row space-x-2">
-                    <div>
-                        <p>Path:</p>
-                    </div>
-                    <div>
-                        <p class="whitespace-nowrap">{{ $file->path ?? "" }}</p>
-                    </div>
-                </div> --}}
                 <div class="flex flex-row space-x-2">
                     <div>
                         <p>Url:</p>
@@ -72,6 +64,7 @@
                         <p>Name:</p>
                     </div>
                     <div>
+                        @if($file->privacy_name ?? false)
                         <p class="whitespace-nowrap">
                             @if(($user->surname ?? false) || ($user->firstname ?? false))
                                 {{ $user->surname }}&nbsp;{{ $user->firstname }}
@@ -79,6 +72,7 @@
                                 {{ $user->name ?? "" }}
                             @endif
                         </p>
+                        @endif
                     </div>
                 </div>
                 <div class="flex flex-row space-x-2">
@@ -86,7 +80,9 @@
                         <p>Email:</p>
                     </div>
                     <div>
+                        @if($file->privacy_email ?? false)
                         <p class="whitespace-nowrap">{{ $user->email ?? "" }}</p>
+                        @endif
                     </div>
                 </div>
                 <div class="flex flex-row space-x-2">
@@ -94,7 +90,9 @@
                         <p>Address:</p>
                     </div>
                     <div>
+                        @if($file->privacy_address ?? false)
                         <p class="whitespace-nowrap">{{ $user->address ?? "" }}</p>
+                        @endif
                     </div>
                 </div>
                 <div class="flex flex-row space-x-2">
@@ -102,7 +100,9 @@
                         <p>Phone:</p>
                     </div>
                     <div>
+                        @if($file->privacy_phone ?? false)
                         <p class="whitespace-nowrap">{{ $user->phone ?? "" }}</p>
+                        @endif
                     </div>
                 </div>
                 <div class="flex flex-row space-x-2">
@@ -110,7 +110,9 @@
                         <p>Gender:</p>
                     </div>
                     <div>
+                        @if($file->privacy_gender ?? false)
                         <p class="whitespace-nowrap">{{ $user->gender ?? "" }}</p>
+                        @endif
                     </div>
                 </div>
             </div>

@@ -27,7 +27,7 @@
 
     <!-- Container -->
     <div id="input-container" class="mt-4">
-        <x-input-label class="m-0 mr-2 p-0" for="file" :value="__('File')" />
+        <x-input-label class="m-0 mr-2 p-0" for="file" :value="__('File') . ' (maximum size of 3MB)'" />
         <x-input-file id="file-input" type="file" name="file" class="form-control block m-0 p-0 w-[90%] bg-white file-input" accept=".txt,.pdf,.csv,.xlx,.xls,.xlsx,.doc,.docx,.html,.css,.js,.jpg,.jpeg,.png,.gif,.mp4,.avi,.3gp,.webm,.wav,.ogg,.mp3" required autofocus />
         <x-input-error :messages="$errors->get('file')" class="mt-2 file-error" />
     </div>
@@ -75,14 +75,14 @@
 <div id="clones" class="hidden">
     <!-- File -->
     <div id="file-input-clone" class="mt-4 hidden">
-        <x-input-label class="m-0 mr-2 p-0" for="file-input" :value="__('File')" />
+        <x-input-label class="m-0 mr-2 p-0" for="file-input" :value="__('File') . ' (maximum size of 3MB)'" />
         <x-input-file id="file-input" type="file" name="file" class="form-control block m-0 p-0 w-[90%] bg-white file-input" accept=".txt,.pdf,.csv,.xlx,.xls,.xlsx,.doc,.docx,.html,.css,.js,.jpg,.jpeg,.png,.gif,.mp4,.avi,.3gp,.webm,.wav,.ogg,.mp3" required autofocus />
         <x-input-error :messages="$errors->get('file')" class="mt-2 file-error" />
     </div>
 
     <!-- Link -->
     <div id="link-input-clone" class="mt-4 hidden">
-        <x-input-label class="m-0 mr-2 p-0" for="link-input" :value="__('Link')" />
+        <x-input-label class="m-0 mr-2 p-0" for="link-input" :value="__('Link') . ' (maximum download size of 3MB)'" />
         <x-text-input id="link-input" type="text" name="link" class="form-control block m-0 p-0 py-1 px-2 w-[90%] bg-white" required />
         <x-input-error :messages="$errors->get('link')" class="mt-2" />
     </div>
