@@ -1,7 +1,7 @@
 <div class="w-[90%] border-b border-gray-300">
     <p>Signature Information</p>
 </div>
-<div class="relative scroll-container w-[90%] overflow-auto">
+<div class="relative scroll-container w-[90%] overflow-auto bg-gray-50 p-3">
     <div class="max-w-[400px] flex flex-row items-start space-x-5">
         <div class="relative flex flex-col space-y-2 w-32 h-40 border-8 border-gray-600 border-solid p-2">
             <div class="flex flex-row space-x-2">
@@ -119,4 +119,3 @@
         </div>
     </div>
 </div>
-
