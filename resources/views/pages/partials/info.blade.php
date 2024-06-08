@@ -51,7 +51,7 @@
                         <p>Url:</p>
                     </div>
                     <div>
-                        <p class="whitespace-nowrap"{{ $file->path ?? "" }}></p>
+                        <p class="whitespace-nowrap">{{ $file->path ?? "" }}</p>
                     </div>
                 </div>
                 <div class="flex flex-row space-x-2">
